@@ -117,7 +117,7 @@ Add the path to the mujoco bin directory to your dynamic loader:
 This is particularly useful on Ubuntu 14.04, which does not have a GLFW package.
 
 
-### Ubuntu installtion troubleshooting
+### Ubuntu installation troubleshooting
 
 Because `mujoco_py` has compiled native code that needs to be linked to a supplied MuJoCo binary, it's installation
 on linux can be more challenging than pure Python source packages.
@@ -130,7 +130,14 @@ If you installed above libraries and you still see an error that `-lGL` cannot b
 to create the symbolic link directly:
 
     sudo ln -s /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
+    
+### Fedora installation troubleshooting
 
+On Fedora installation of `mujoco_py` requires the installation of `libopenmesa-devel`:
+
+    sudo dnf install mesa-libOSMesa-devel.x86_64 patchelf
+    
+When installing the Python package be sure to not use `sudo` or else the installer will expect mujoco binaries to be in `/root/.mujoco/` instead of  `/home/<user>/.mujoco/`.
 
 ## Usage Examples
 
